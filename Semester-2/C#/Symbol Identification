@@ -1,5 +1,7 @@
-using System;
+1. Write a c# console application to ask the user for a symbol and answer if it is a (lowercase) vowel,a digit, or any other symbol(using switch or if and use{0})
 
+
+using System;
 class Program
 {
     static void Main()
