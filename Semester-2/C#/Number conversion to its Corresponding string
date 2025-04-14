@@ -1,0 +1,30 @@
+2. Write a c# console application for conversion of a number to its corresponding string.(create string,array,and use the string methods trim,length,elment at) 
+
+
+using System;
+using System.Linq;
+
+class Program
+{
+  static void Main()
+  {
+    Console.WriteLine("Enter a number:");
+    string input=Console.ReadLine();
+
+    string trimmedInput=input.Trim();
+
+    string[] numArray=new string[1];
+    numArray[0]=trimmedInput;
+
+    Console.WriteLine("Converted to string:'{0}'",numArray[0]);
+
+    Console.WriteLine("Length of the string:'{0}'",numArray[0].Length);
+
+    Console.WriteLine("Characters in the string:\n");
+    for(int i=0;i<numArray[0].Length;i++)
+    {
+        char c=numArray[0].ElementAt(i);
+        Console.WriteLine("Character at index {0}:{1}",i,c);
+    }
+  }
+}
