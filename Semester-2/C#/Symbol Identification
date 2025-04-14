@@ -1,0 +1,41 @@
+1.Write a c# console application to ask the user for a symbol and answer if it is a (lowercase) vowel,a digit, or any other symbol(using switch or if and use{0}).
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        Console.Write("Enter a symbol: ");
+        char input = Console.ReadKey().KeyChar;
+        Console.WriteLine(); // Move to next line after key press
+
+        switch (input)
+        {
+            case 'a':
+            case 'e':
+            case 'i':
+            case 'o':
+            case 'u':
+                Console.WriteLine("'{0}' is a lowercase vowel.", input);
+                break;
+
+            case '0':
+            case '1':
+            case '2':
+            case '3':
+            case '4':
+            case '5':
+            case '6':
+            case '7':
+            case '8':
+            case '9':
+                Console.WriteLine("'{0}' is a digit.", input);
+                break;
+
+            default:
+                Console.WriteLine("'{0}' is another symbol.", input);
+                break;
+        }
+    }
+}
