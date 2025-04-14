@@ -1,0 +1,15 @@
+6.Write a program to find the keys with maximum value in a dictionary.
+
+
+def find_keys_with_max_value(d):
+    max_value=max(d.values)
+    keys_with_max_value=[key for key ,value in d.items() if value==max_value]
+    return keys_with_max_value
+my_dict={
+    "a":10,
+    "b":20,
+    "c":20,
+    "d":5
+}
+keys=find_keys_with_max_value(my_dict)
+print(f"Keys wth maximum value:{keys}")

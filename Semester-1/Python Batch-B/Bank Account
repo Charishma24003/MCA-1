@@ -1,0 +1,31 @@
+16.create a bankAccount class with attributes for account holders name ,balance and account number. Implement  methods to deposit,withdraw(with balance check) and check the balance.
+Demonstrate bank operations using instances.
+
+
+class BankAccount:
+    def __init__(self,name,accno,balance=0):
+        self.name=name
+        self.accno=accno
+        self.balance=0
+    def deposit(self,amount):
+        if amount>0:
+            self.balance+=amount
+            print(f"deposited {amount}  new balance:{self.balance}")
+        else:
+            print("Deposit amount must be positive")
+    def  withdraw(self,amount):
+        if amount>0:
+            if amount<=self.balance:
+                self.balance-=amount
+                print(f"Withdrawn {amount}  new balance:{self.balance}")
+            else:
+                print("Insufficient balance")
+        else:
+            print("withdraw amount must be positive")
+def check_balance(self):
+    print(f"current balance:{self.balance}")
+acc1=BankAccount(name="Sara",accno="167738378",balance=1000)
+acc1.deposit(500)
+acc1.withdraw(300)
+acc1.check_balance()
+acc1.withdraw(1500)

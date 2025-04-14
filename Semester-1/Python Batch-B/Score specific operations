@@ -1,0 +1,14 @@
+11.Write a python program that takes the list of scores as input and performs the specified operations.
+1.calculate and print the average score of the class
+2.Determine and print the highest score achieved in class 
+3.count and print the numbers of students who scored above average score
+
+
+scores=list(map(float,input("Enter the list of scores seperated by space").split()))
+average_score=sum(scores)/len(scores)
+highest_score=max(scores)
+above_average_count=sum(scores>average_score for score in scores)
+
+print(f"\n Average score:{average_score:.2f}")
+print(f"\nHighest score:{highest_score}")
+print(f"\n Number of students above  average :{above_average_count}")

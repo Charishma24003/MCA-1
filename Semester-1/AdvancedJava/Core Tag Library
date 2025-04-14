@@ -1,0 +1,39 @@
+14. Web application to illustrate the use of core tag library
+
+
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
+<html> 
+    <head> 
+        <title>JSTL Core Tag Library Example</title> 
+    </head> 
+    <body> 
+        <h1>JSTL Core Tag Library Example</h1> 
+        <!-- 1. Using c:set to set a value --> 
+        <c:set var="userName" value="John Doe" /> 
+        <p><strong>User Name:</strong> <c:out value="${userName}" /></p> 
+
+        <!-- 2. Conditional Statements --> 
+        <c:if test="${userName == 'John Doe'}"> 
+            <p>Welcome, John Doe!</p> 
+        </c:if> 
+ 
+        <!-- 3. Using c:choose for conditional branching --> 
+        <c:choose> 
+            <c:when test="${userName == 'John Doe'}"> 
+                <p>Hello, VIP user!</p> 
+            </c:when> 
+            <c:otherwise> 
+                <p>Hello, Guest!</p> 
+            </c:otherwise> 
+        </c:choose> 
+ 
+        <!-- 4. Iterating over a collection using c:forEach --> 
+        <c:set var="items" value="${['Item1', 'Item2', 'Item3', 'Item4']}" /> 
+        <h3>List of Items:</h3> 
+        <ul> 
+            <c:forEach var="item" items="${items}"> 
+                <li>${item}</li> 
+            </c:forEach> 
+        </ul> 
+    </body> 
+</html>

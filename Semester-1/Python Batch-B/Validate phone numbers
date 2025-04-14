@@ -1,0 +1,24 @@
+4.Write a function to validate phone numbers and input n  names and phone numbers to store it in a dictionary  and print the phone number of a particular name. 
+
+
+def validate_phone_no(phone):
+    return phone.isdigit() and len(phone)==10
+def store_phone_no(n):
+    phone_book={}
+    for i in range(n):
+        name=input("Enter name:").strip()
+        while True:
+            phone=input(f"Enter phone number for{name}:").strip()
+            if validate_phone_no(phone):
+                phone_book[name]=phone
+            else:
+                print("Invalid phone no please enter 10 digit number")
+    return phone_book
+def get_phone_no(phone_book,name):
+    return phone_book.get(name,"Name not found in phone book")
+
+n=int(input("How many contacts do you want to store"))
+phone_book=store_phone_no(n)
+name_to_search=input("Enter the name to find the phone number").strip()
+phone_number=get_phone_no(phone_book,name_to_search)
+print(f"Phone number of {name_to_search}:{phone_number}")

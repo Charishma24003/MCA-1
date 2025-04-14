@@ -1,0 +1,16 @@
+13.Write a function to find the second largest from the list.
+
+
+ def second_largest(lst):
+    if len(lst)<2:
+        return None
+    max_val=second_largest_val=float("-inf")
+    for num in lst:
+        if num>max_val:
+            maxval,second_largest_val=num,maxval
+        elif max_val>num>second_largest_val:
+            second_largest_val=num
+    return second_largest_val if second_largest_val!=float("-inf")else None
+lst=list(map(int,input("Enter the integer in the list seperated by space").split()))
+result=second_largest(lst)
+print("The second largest number is:",result if result is not None else 'Not available')

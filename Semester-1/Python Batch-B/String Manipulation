@@ -1,0 +1,26 @@
+14.Write a python module called utils.py containing functions for string manipulation  such as capitalize_first_letter,reverse_string and count_vowels ,in your python program demonstrate how to import and use the functions in a separate python file.
+
+
+ utils.py file
+ 
+def capitalize_first_letter(s):
+    if not s:
+        return s
+    return s[0].upper()+s[1:]
+def reverse_string(s):
+    return s[::-1]
+def count_vowels_count(s):
+    vowels="aeiouAEIOU"
+    return sum(1 for char in s if char in vowels)
+
+    
+main.py file
+
+from utils import capitalize_first_letter,reverse_string,count_vowels
+text="hello world"
+cap_text=capitalize_first_letter(text)
+print("capitalized:",cap_text)
+rev_text=reverse_string(text)
+print("Reversed:",rev_text)
+vowel_count=count_vowels(text)
+print("Vowel count:",vowel_count)
