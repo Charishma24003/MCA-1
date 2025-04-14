@@ -1,0 +1,135 @@
+13.Write a c++ program to implement Ordered Singly Linked List,Reverse the list and display the same using class and structure.
+
+
+#include <iostream>
+using namespace std;
+
+typedef struct snode 
+{
+    int data;
+    struct snode *next;
+} 
+Node;
+
+class OrderedSlist 
+{
+public:
+    Node *fnInsertOrdered(Node *head, int num) 
+    {
+        Node *newnode = (Node *)malloc(sizeof(Node));
+        newnode->data = num;
+        newnode->next = NULL;
+        if (head == NULL || head->data >= num) 
+        {
+            // Insert at the beginning
+            newnode->next = head;
+            head = newnode;
+        } 
+        else 
+        {
+            // Insert in the middle or at the end
+            Node *temp = head;
+            while (temp->next != NULL && temp->next->data < num) 
+            {
+                temp = temp->next;
+            }
+            newnode->next = temp->next;
+            temp->next = newnode;
+        }
+        return head;
+    }
+
+    Node *fnReverse(Node *head) 
+    {
+        Node *prev = NULL, *current = head, *next = NULL;
+        while (current != NULL) 
+        {
+            next = current->next; // Store the next node
+            current->next = prev; // Reverse the link
+            prev = current;       // Move prev one step forward
+            current = next;       // Move current one step forward
+        }
+        head = prev; // Update head to the last non-null node
+        return head;
+    }
+
+    void fnDisplay(Node *head) 
+    {
+        if (head == NULL) 
+        {
+            cout << "List is empty.\n";
+            return;
+        }
+        Node *temp = head;
+        while (temp != NULL) {
+            cout << temp->data << " -> ";
+            temp = temp->next;
+        }
+        cout << "NULL\n";
+    }
+};
+
+int main() 
+{
+    OrderedSlist oslist;
+    Node *head = NULL;
+    int ch, num;
+    cout << "Menu:\n";
+    cout << "1. Insert ordered\n";
+    cout << "2. Display\n";
+    cout << "3. Reverse and display\n";
+    cout << "4. Exit\n";
+    while (1) 
+    {
+        cout << "Enter your choice: ";
+        cin >> ch;
+        switch (ch) 
+        {
+            case 1:
+                cout << "Enter a number to insert: ";
+                cin >> num;
+                head = oslist.fnInsertOrdered(head, num);
+                break;
+
+            case 2:
+                cout << "List: ";
+                oslist.fnDisplay(head);
+                break;
+
+            case 3:
+                head = oslist.fnReverse(head);
+                cout << "Reversed list: ";
+                oslist.fnDisplay(head);
+                break;
+
+            case 4:
+                exit(0);
+
+            default:
+                cout << "Invalid choice. Try again.\n";
+        }
+    }
+    return 0;
+}
+
+
+OUTPUT:
+
+Menu:
+1. Insert ordered
+2. Display
+3. Reverse and display
+4. Exit
+Enter your choice: 1
+Enter a number to insert: 4
+Enter your choice: 1
+Enter a number to insert: 2
+Enter your choice: 1
+Enter a number to insert: 7
+Enter your choice: 1
+Enter a number to insert: 5
+Enter your choice: 2
+List: 2 -> 4 -> 5 -> 7 -> NULL
+Enter your choice: 3
+Reversed list: 7 -> 5 -> 4 -> 2 -> NULL
+Enter your choice: 4
